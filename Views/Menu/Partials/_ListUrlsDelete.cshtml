@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SelectListItem>
+
+@{
+    if(Model.Any())
+    {
+        foreach (var url in Model)
+        {
+            <form data-ajax="true" data-ajax-method="post" asp-controller="Menu" asp-action="DeleteUrl"
+                  data-ajax-mode="replace" data-ajax-update="#list">
+                    <div id="@url.Value" class="row pt-2">
+                        <input name="url" readonly class="ml-3 col-8" value="@url.Value"/>
+                        <button onclick="removeOption('@url.Value')" class="btn btn-danger col-2 ml-3" type="submit">Delete</button>
+                    </div>
+            </form>
+        }
+    }
+    else
+    { 
+        <h1 class="text-center">Url removed</h1>
+    }
+}

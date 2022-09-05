@@ -1,0 +1,18 @@
+﻿@model RssView.Core.Post
+
+
+<link href="./css/FeedStyle.css" rel="stylesheet" type="text/css" />
+
+<div style="border: 1px solid black; margin-top: 5px; width: 100%;">
+    <div class="col-12">
+        <label class="col-4">@Model.PubDate</label>
+    </div>
+    <div class="col-12">
+        <a href="@Model.Link" class="col-5">@Model.Title</a>
+    </div>
+    <div id="description" class="col-12">
+        <div>@Html.Raw(Model.Description)</div>
+    </div>
+</div>
+
+

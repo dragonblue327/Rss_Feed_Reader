@@ -1,0 +1,24 @@
+﻿@model string
+
+<script>$('#ModalInfo').modal('show');</script>
+
+<div id="ModalInfo" class="modal fade" tabindex="-1" aria-labelledby="infoModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            @{
+                if (Model!="")
+                {
+                    <h1 class="text-center text-success">Url добавлен</h1>
+                    <script>
+                        let select = document.querySelector('#listRss').options;
+                        select[select.length] = new Option('@Model', '@Model', true);
+                    </script>
+                }
+                else
+                {
+                    <h1 class="text-center text-danger">Something went wrong</h1>
+                }
+            }
+        </div>
+    </div>
+</div>

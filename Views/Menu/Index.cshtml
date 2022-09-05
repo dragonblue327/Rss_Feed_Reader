@@ -1,0 +1,33 @@
+﻿@model RssView.ViewModels.MenuVM
+
+
+
+<div class="pt-3 row justify-content-center">
+    <div id="menu" class="pt-3 border">
+        <div>
+            <div class="pl-1 row">
+                <label class="col-3" asp-for="Urls"></label>
+                <div class="col-4">
+                    <select id="listRss" asp-items="@Model.Urls" class="form-control">
+                        <option disabled selected>Urls</option>
+                    </select>
+                </div>
+                <button type="button" data-toggle="modal" data-target="#ModalDeleteUrls" class="btn btn-info col-2 form-control">Change</button>
+                <button type="button" data-toggle="modal" data-target="#ModalAddUrl" class="btn btn-success ml-2 col-2 form-control">Add</button>
+            </div>
+            <div class="pl-1 row pt-3 pb-3">
+                <label class="col-3" asp-for="FrequencyRefreshInMinutes"></label>
+                <div class="col-4"><input class="form-control" disabled value="@Model.FrequencyRefreshInMinutes мин"/></div>
+                <button data-toggle="modal" data-target="#changeFrequencyModal" type="button" class="btn-info ml-2 col-3 form-control">Change</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="Partials/_DeleteUrlsModal" model="@Model.Urls"/>
+<partial name="Partials/_AddUrlModal"/>
+<partial name="Partials/_ChangeFrequencyRefreshModal" model="@string.Format("{0} min",Model.FrequencyRefreshInMinutes)"/>
+
+<link href="./css/MenuStyle.css" rel="stylesheet" type="text/css" />
+
+

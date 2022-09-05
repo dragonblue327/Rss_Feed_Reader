@@ -1,0 +1,22 @@
+﻿@model IEnumerable<SelectListItem>
+
+<div class="modal fade" id="ModalDeleteUrls" tabindex="-1" role="dialog" aria-labelledby="ModalDeleteUrlsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="list" class="modal-body justify-content-center ml-2 mr-2">
+                <partial name="Partials/_ListUrlsDelete" model="@Model"/>
+            </div>
+            <script>
+                        function removeOption(value) {
+                        var select = document.getElementById('listRss');
+                        select.removeChild(select.querySelector('[value="' + value + '"]'));
+                        }
+            </script>
+        </div>
+    </div>
+</div>

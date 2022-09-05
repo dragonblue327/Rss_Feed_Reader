@@ -1,0 +1,10 @@
+﻿@model RssView.ViewModels.HomeVM
+
+<div class="container">
+    <div class="row justify-content-center">
+        @foreach (var post in Model.Posts)
+        {
+            <partial name="Partials/_Feed" model="post" />
+        }
+    </div>
+</div>
